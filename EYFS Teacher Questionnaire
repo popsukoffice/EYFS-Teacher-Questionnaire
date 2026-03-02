@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>EP Teacher Questionnaire — EYFS &amp; Early Needs</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#1a5f7a;--teal-lt:#e6f3f8;--teal-dk:#0f3d52;
+  --amber:#c46b1a;--amber-lt:#fdf3e6;
+  --rose:#b5333c;--rose-lt:#fdf0f0;
+  --navy:#1a2744;--slate:#4a5568;--mid:#6b7280;
+  --border:#dde3ed;--bg:#f5f7fa;--white:#fff;
+  --fh:'Lora',Georgia,serif;--fb:'Nunito',-apple-system,sans-serif;
+  --r:16px;--sh:0 2px 20px rgba(27,45,80,.09)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:var(--fb);color:var(--navy);font-size:16px;line-height:1.65;-webkit-tap-highlight-color:transparent}
+input,textarea,select,button{font-family:var(--fb);font-size:15px}
+
+.hdr{background:var(--teal-dk);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 3px 16px rgba(0,0,0,.3)}
+.hdr h1{font-family:var(--fh);color:#fff;font-size:16px;line-height:1.2;font-style:italic}
+.hdr .sub{color:rgba(255,255,255,.5);font-size:11px;text-transform:uppercase;letter-spacing:.07em;margin-top:2px;font-style:normal}
+.pct{background:rgba(255,255,255,.15);color:#fff;border-radius:20px;padding:4px 10px;font-size:12px;font-weight:700}
+
+.svb{background:var(--teal);color:#fff;text-align:center;padding:7px;font-size:13px;font-weight:600;transition:opacity .4s;height:34px}
+.svb.hidden{opacity:0;pointer-events:none}
+
+.snav{display:flex;gap:6px;padding:10px 14px;overflow-x:auto;background:#fff;border-bottom:1px solid var(--border);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.snav::-webkit-scrollbar{display:none}
+.npill{flex:0 0 auto;padding:6px 13px;border-radius:20px;font-size:12.5px;font-weight:600;border:1.5px solid var(--border);background:#fff;color:var(--slate);cursor:pointer;white-space:nowrap;transition:all .15s}
+.npill.act{background:var(--teal-dk);border-color:var(--teal-dk);color:#fff}
+.npill.vis{border-color:var(--teal);color:var(--teal)}
+
+.fw{max-width:720px;margin:0 auto;padding:16px 16px 60px}
+
+.sh{margin:22px 0 14px}
+.sbadge{display:inline-flex;align-items:center;background:var(--teal-dk);color:#fff;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:8px}
+.sh h2{font-family:var(--fh);font-size:21px;margin-bottom:4px}
+.sh p{font-size:14px;color:var(--slate)}
+
+.card{background:#fff;border-radius:var(--r);padding:20px;margin-bottom:12px;box-shadow:var(--sh)}
+.card label{display:block;font-size:14px;font-weight:600;color:var(--navy);margin-bottom:7px}
+.card input[type=text],.card input[type=email],.card input[type=tel],.card input[type=number],.card select,.card textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:9px;font-size:15px;color:var(--navy);background:var(--bg);transition:border-color .15s}
+.card input:focus,.card select:focus,.card textarea:focus{outline:none;border-color:var(--teal);background:#fff}
+.card textarea{min-height:76px;resize:vertical}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fr3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:500px){.fr{grid-template-columns:1fr}.fr3{grid-template-columns:1fr}}
+.hint{font-size:12px;color:var(--mid);font-style:italic;margin-bottom:8px;margin-top:-2px}
+
+.rg{display:flex;flex-direction:column;gap:7px}
+.ro{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1.5px solid var(--border);border-radius:9px;cursor:pointer;font-size:14px;transition:all .12s}
+.ro:hover{border-color:var(--teal);background:var(--teal-lt)}
+.ro.sel{border-color:var(--teal);background:var(--teal-lt);font-weight:600}
+.ro input{accent-color:var(--teal);width:17px;height:17px;flex-shrink:0}
+.rg-inline{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;margin-top:8px}
+.rg-inline .ro{flex:0 0 auto;width:auto}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+@media(max-width:480px){.cg{grid-template-columns:1fr}}
+.co{display:flex;align-items:center;gap:8px;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;font-size:13.5px;transition:all .12s}
+.co:hover{border-color:var(--teal);background:var(--teal-lt)}
+.co.sel{border-color:var(--teal);background:var(--teal-lt)}
+.co input{accent-color:var(--teal);width:16px;height:16px;flex-shrink:0}
+
+.qb{background:#fff;border-radius:var(--r);padding:18px 20px;margin-bottom:10px;box-shadow:var(--sh)}
+.qb .q{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.qb .qh{font-size:12px;color:var(--mid);font-style:italic;margin-bottom:8px}
+.qb textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:9px;font-size:15px;color:var(--navy);background:var(--bg);min-height:76px;resize:vertical}
+.qb textarea:focus{outline:none;border-color:var(--teal);background:#fff}
+
+.tsec{background:#fff;border-radius:var(--r);margin-bottom:12px;overflow:visible;box-shadow:var(--sh)}
+.tttl{background:var(--teal-lt);padding:11px 16px;font-size:14px;font-weight:700;color:var(--teal-dk);border-bottom:1px solid #a8d4e3;border-radius:var(--r) var(--r) 0 0}
+.tchdr{display:grid;grid-template-columns:1fr 1fr;background:var(--bg);border-bottom:1px solid var(--border)}
+.tchdr span{padding:7px 14px;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.tchdr .shdr{color:var(--teal);border-right:1px solid var(--border)}
+.tchdr .dhdr{color:var(--rose)}
+.tbody{display:grid;grid-template-columns:1fr 1fr}
+.tcol{display:flex;flex-direction:column}
+.tcol.sc{border-right:1px solid var(--border)}
+.ti{display:flex;align-items:flex-start;gap:9px;padding:10px 14px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s;font-size:13.5px;line-height:1.4}
+.ti:last-child{border-bottom:none}
+.ti:hover{background:var(--bg)}
+.ti input[type=checkbox]{flex-shrink:0;width:17px;height:17px;margin-top:2px;accent-color:var(--teal)}
+.tcol.dc .ti input[type=checkbox]{accent-color:var(--rose)}
+
+.dex{display:none;padding:12px 14px 14px;background:#fff8f8;border-top:1px solid #f5cfc9;border-bottom:1px solid #f5cfc9}
+.dex.open{display:block}
+.dex .dlbl{font-size:13px;font-weight:700;color:var(--rose);margin-bottom:5px;display:block}
+.dex textarea{width:100%;padding:10px 12px;border:1.5px solid #f5cfc9;border-radius:8px;font-size:14px;color:var(--navy);background:#fff;min-height:68px;resize:vertical}
+.dex textarea:focus{outline:none;border-color:var(--rose)}
+.dex .egrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.dex .egrid{grid-template-columns:1fr}}
+
+.tnotes{padding:12px 16px;background:var(--bg);border-top:1px solid var(--border);border-radius:0 0 var(--r) var(--r)}
+.tnotes label{font-size:13px;font-weight:600;color:var(--slate);margin-bottom:6px;display:block}
+.tnotes textarea{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;color:var(--navy);background:#fff;min-height:64px;resize:vertical}
+.tnotes textarea:focus{outline:none;border-color:var(--teal)}
+
+.obox{background:var(--amber-lt);border:1.5px solid #e8b580;border-radius:var(--r);padding:18px 20px;margin-bottom:12px}
+.obox h3{font-family:var(--fh);font-size:16px;color:var(--amber);margin-bottom:4px}
+.obox p{font-size:13px;color:var(--slate);margin-bottom:12px}
+.oi{margin-bottom:10px}
+.oi label{font-size:13.5px;font-weight:600;color:var(--navy);margin-bottom:5px;display:block}
+.oi textarea{width:100%;padding:10px 12px;border:1.5px solid #e8b580;border-radius:8px;font-size:14px;color:var(--navy);background:#fff;min-height:60px;resize:vertical}
+.oi textarea:focus{outline:none;border-color:var(--amber)}
+.oi textarea::placeholder{color:#c8a888;font-style:italic}
+
+.prt{background:#fff;border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;margin-bottom:12px}
+.prr{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);font-size:14px}
+.prr:last-child{border-bottom:none}
+.prr input[type=checkbox]{width:18px;height:18px;flex-shrink:0;accent-color:var(--navy)}
+.prrl{flex:1;cursor:pointer}
+.prrs{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mid);flex-shrink:0}
+.prrs select{padding:4px 8px;border:1.5px solid var(--border);border-radius:6px;font-size:13px;color:var(--navy);background:var(--bg)}
+
+.iw{max-width:560px;margin:40px auto;padding:16px}
+.ic{background:#fff;border-radius:22px;padding:32px 28px;box-shadow:var(--sh)}
+.ic h2{font-family:var(--fh);font-size:24px;margin-bottom:4px}
+.ic .st{color:var(--mid);font-size:14px;margin-bottom:20px}
+.infobox{background:var(--teal-lt);border-left:4px solid var(--teal);border-radius:0 12px 12px 0;padding:15px 17px;margin:18px 0;font-size:14px;color:var(--navy)}
+.infobox strong{display:block;color:var(--teal-dk);font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.infobox p{margin-bottom:7px}
+.infobox p:last-child{margin-bottom:0}
+.resbox{background:var(--amber-lt);border:1.5px solid var(--amber);border-radius:10px;padding:14px 16px;margin:14px 0;font-size:14px}
+.resbox strong{color:var(--amber);display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+
+.btn{display:block;width:100%;padding:14px 20px;border-radius:10px;border:none;font-size:15px;font-weight:700;cursor:pointer;text-align:center;transition:transform .1s}
+.btn:active{transform:scale(.98)}
+.btp{background:var(--teal);color:#fff;margin-bottom:10px;box-shadow:0 4px 14px rgba(26,95,122,.35)}
+.bts{background:#fff;color:var(--navy);border:1.5px solid var(--border);margin-bottom:10px}
+.btf{background:var(--teal-dk);color:#fff;box-shadow:0 4px 14px rgba(15,61,82,.35)}
+.bte{background:#2c7a2c;color:#fff;box-shadow:0 4px 14px rgba(44,122,44,.35);margin-bottom:10px}
+.nbs{display:flex;gap:10px;margin-top:24px}
+.nbs .btn{flex:1}
+
+.dw{max-width:560px;margin:40px auto;padding:16px;text-align:center}
+.dc{background:#fff;border-radius:22px;padding:28px;box-shadow:var(--sh)}
+.dc h2{font-family:var(--fh);font-size:22px;margin-bottom:10px}
+.dc p{color:var(--slate);font-size:14px;margin-bottom:12px}
+.rpre{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:18px;text-align:left;font-size:12.5px;line-height:1.7;white-space:pre-wrap;max-height:380px;overflow-y:auto;margin:14px 0;color:var(--navy)}
+
+.sinote{background:var(--teal-lt);border-radius:10px;padding:12px 16px;font-size:13.5px;color:var(--navy);margin-bottom:14px;border:1px solid #a8d4e3}
+.teach-note{background:#fffbf0;border:1.5px solid #e8c96a;border-radius:10px;padding:12px 16px;font-size:13.5px;color:var(--navy);margin-bottom:14px}
+
+.attbar-bg{height:20px;background:#e8edf5;border-radius:10px;overflow:hidden;margin:10px 0 4px}
+.attbar{height:100%;border-radius:10px;transition:width .4s;background:var(--teal)}
+.attbar.amber{background:#e07b2e}
+.attbar.red{background:var(--rose)}
+.attlabel{font-size:12px;color:var(--mid);text-align:right}
+
+.email-input{display:flex;gap:8px;margin-bottom:12px}
+.email-input input{flex:1;padding:11px 14px;border:1.5px solid var(--border);border-radius:9px;font-size:15px;color:var(--navy);background:var(--bg)}
+.email-input input:focus{outline:none;border-color:var(--teal)}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const SK='ep_eyfs_teacher_v1';
+
+const SECS=[
+  {id:'det',t:'Setting Details',i:'🏫'},
+  {id:'bg',t:'Background',i:'📋'},
+  {id:'att',t:'Attendance',i:'📅'},
+  {id:'sup',t:'Support in Place',i:'🤝'},
+  {id:'pri',t:'Main Concerns',i:'⭐'},
+  {id:'phy',t:'A: Physical & Sensory',i:'🏃'},
+  {id:'com',t:'B: Communication',i:'💬'},
+  {id:'sem',t:'C: Emotional & Social',i:'❤️'},
+  {id:'cog',t:'D: Learning & Play',i:'🧩'},
+  {id:'cv',t:"Child's Voice",i:'🗣️'},
+  {id:'tv',t:'Teacher Views',i:'👩‍🏫'},
+];
+
+const DH={
+  phys_h2_d:['e.g., squints at the board, avoids visual tasks, eyes water frequently','e.g., optician referral made, larger print resources, seated closer to board'],
+  phys_h3_d:['e.g., does not respond when called across the room, mishears instructions','e.g., audiology referral, face child when speaking, reduce background noise'],
+  phys_h4_d:['e.g., needs inhaler before PE, medication administered by named adult','e.g., individual healthcare plan in place, named adult manages medication'],
+  phys_s1_d:['e.g., refuses sand, paint, playdough, grass — distress at any messy activity','e.g., introduce textures gradually, alternatives offered, OT referral made'],
+  phys_s2_d:['e.g., distressed by bright lighting in hall, covers eyes, refuses certain rooms','e.g., dimmer lighting where possible, seated away from windows'],
+  phys_s3_d:['e.g., gags at cooking smells, cleaning products, other children\'s food at lunch','e.g., unscented cleaning products, eats separately, pre-warned before smell events'],
+  phys_s4_d:['e.g., covers ears at assembly, hand dryers, fire alarms — cannot settle afterwards','e.g., ear defenders provided, pre-warned before loud events, quiet retreat available'],
+  phys_s5_d:['e.g., constant spinning, mouthing objects, crashing into furniture deliberately','e.g., movement breaks scheduled, sensory diet in place, OT referral made'],
+  phys_f1_d:['e.g., cannot hold a pencil functionally, cannot manage simple puzzles or jigsaws','e.g., adapted tools, OT referral, pre-writing programme, larger resources'],
+  phys_f2_d:['e.g., refuses all mark-making, very immature grip, avoids all pencil/pen activities','e.g., chunky crayons, finger paint, OT referral'],
+  phys_f3_d:['e.g., needs full adult help to dress/undress for PE, cannot manage coat zip','e.g., velcro shoes, extra time for changing, adult support for PE'],
+  phys_f4_d:['e.g., drops resources, cannot pick up counters, knocks everything over','e.g., larger resources, tray to contain items, adult support for fine motor tasks'],
+  phys_g1_d:['e.g., falls frequently on flat ground, very unsteady on stairs, trips constantly','e.g., hand-holding for stairs, physio referral, trip hazards removed'],
+  phys_g2_d:['e.g., refuses all outdoor PE, sits out consistently, avoids playground equipment','e.g., physio referral, adapted activities, gentle encouragement with key adult'],
+  phys_g3_d:['e.g., cannot throw or catch at all, avoids all ball games, no targeting ability','e.g., large/soft balls, short distances, OT/physio referral'],
+  phys_g4_d:['e.g., constantly bumps into peers and furniture, no body awareness','e.g., body-awareness activities, clear space, OT/physio referral'],
+  phys_d2_d:['e.g., eats only 2-4 foods at lunch, extreme distress at smell/sight of other food','e.g., eats separately, no pressure, SALT or dietitian referral'],
+  phys_d3_d:['e.g., falling asleep in sessions, unable to concentrate due to exhaustion','e.g., morning activities prioritised, sleep clinic referral discussed with parents'],
+  phys_d4_d:['e.g., accidents frequently in setting, not yet reliably toilet trained','e.g., toileting programme in place, continence nurse referral, prompted visits'],
+  phys_d5_d:['e.g., needs full adult dressing/undressing, no independence with any clothing','e.g., velcro/elastic clothing, step-by-step practice, OT referral'],
+  phys_safe1_d:['e.g., runs out of room without warning, no response to stop/wait/no','e.g., visual stop sign, physical barriers near exits, close adult supervision'],
+  phys_safe2_d:['e.g., climbs dangerously, runs into others, unaware of hazards outdoors','e.g., gated outdoor area, 1:1 supervision outdoors, designated safe zone'],
+  phys_safe3_d:['e.g., wanders away on visits, no road awareness, does not hold hands','e.g., 1:1 adult on all trips, high-vis vest, risk assessment updated'],
+  phys_safe4_d:['e.g., goes with strangers, no concern about who they follow','e.g., social stories about safety, safeguarding plan, parental alert system'],
+  phys_safe5_d:['e.g., runs into roads, does not understand traffic or pedestrian crossings','e.g., hands held near all roads, road safety teaching with trusted adult'],
+  comm_s1_d:['e.g., uses fewer than 50 words, communicates mainly through behaviour or pointing','e.g., SALT referral, PECS/AAC in use, Makaton, total communication approach'],
+  comm_s2_d:['e.g., uses no words, only vocalisations or reaches to communicate needs','e.g., SALT referral urgently, respond to all communication attempts, model language'],
+  comm_s3_d:['e.g., cannot request pain, hunger, discomfort or help verbally or non-verbally','e.g., SALT referral, teach basic requesting via objects/pictures/signs'],
+  comm_s4_d:['e.g., does not understand get your coat or sit down without physical prompt','e.g., simplify to single words with gesture alongside, SALT referral'],
+  comm_s5_d:['e.g., does not understand no, stop or basic safety language','e.g., simple consistent vocabulary, physical prompt alongside word, SALT referral'],
+  comm_s6_d:['e.g., only functional requests, no conversational exchange or back-and-forth','e.g., intensive interaction, responsive communication approach, SALT involvement'],
+  comm_s7_d:['e.g., does not point to share interest, no joint attention with adults in setting','e.g., SALT, autism assessment consideration, intensive interaction, follow child\'s lead'],
+  comm_s8_d:['e.g., speech very unclear even to familiar staff, approximations only','e.g., SALT referral for speech sound work, model correct form back, do not correct'],
+  comm_l1_d:['e.g., no response to name called from close range or familiar adults','e.g., hearing test, get to eye level, touch to gain attention, SALT referral'],
+  comm_l2_d:['e.g., does not respond to name being called, delayed or very inconsistent','e.g., ensure hearing tested, use name plus touch, SALT review'],
+  comm_l3_d:['e.g., cannot follow sit down or get your coat without physical demonstration','e.g., one-word instruction with gesture, physical prompt, visual schedule, SALT'],
+  comm_l4_d:['e.g., instructions with two steps not followed even with known language','e.g., one instruction at a time, gesture alongside, visual cue cards'],
+  comm_l5_d:['e.g., cannot identify familiar objects, people or actions by name','e.g., consistent naming, SALT support, visual labelling of environment'],
+  comm_l6_d:['e.g., covers ears, cries, or cannot function in busy or noisy group activities','e.g., ear defenders, quieter space, small group activities first'],
+  comm_p1_d:['e.g., no eye contact at all, even in highly motivating play situations','e.g., do not force eye contact, build through play, autism assessment consideration'],
+  comm_p2_d:['e.g., no interest in peers, moves away when others approach','e.g., supported parallel play, introduce gradually with motivating activities'],
+  comm_p3_d:['e.g., no joint attention, does not look to adult when something interesting happens','e.g., build through favourite activities, follow child\'s lead, SALT support'],
+  comm_p4_d:['e.g., does not respond to social games, clapping, turn-taking, peekaboo','e.g., intensive interaction, start with physical/sensory play, follow child\'s interests'],
+  sem_e1_d:['e.g., cannot be settled by any adult in setting, extreme distress daily','e.g., consistent key adult, predictable routine, safe space, consider referral'],
+  sem_e2_d:['e.g., flat affect, little emotional range, no smiling or apparent enjoyment','e.g., playful engagement, safeguarding review, attachment history, CAMHS consideration'],
+  sem_e3_d:['e.g., once upset takes 30+ mins to calm, nothing available helps in setting','e.g., regulation toolkit, quiet safe space, co-regulation, OT/CAMHS referral'],
+  sem_e4_d:['e.g., does not respond to praise, stickers, verbal encouragement or rewards in setting','e.g., explore motivators, try various reward styles, autism assessment consideration'],
+  sem_e5_d:['e.g., no warning signs — escalates from calm to extreme crisis instantly','e.g., close observation of subtle cues, proactive regulation, CAMHS referral'],
+  sem_e6_d:['e.g., no attachment to any adult in setting — treats all adults identically or avoids all','e.g., key person approach, slow trust-building, safeguarding and attachment review'],
+  sem_e7_d:['e.g., extreme distress if timetable changes — even minor variations cause meltdown','e.g., visual timetable, advance warning, transition object, autism assessment'],
+  sem_e8_d:['e.g., extreme tantrums lasting 45+ minutes, very difficult to de-escalate in setting','e.g., identify triggers, safe space, co-regulation, consistent response, CAMHS referral'],
+  sem_s1_d:['e.g., cannot tolerate other children near, bites, hits or withdraws completely','e.g., parallel play at distance, gated safe space, gradual reduction in distance'],
+  sem_s2_d:['e.g., actively distressed when peers approach, moves to edges of all spaces','e.g., start with one trusted peer, build very slowly, autism assessment consideration'],
+  sem_s3_d:['e.g., no awareness when others are upset or hurt in setting','e.g., label others\' emotions consistently, emotion picture work, SALT/autism assessment'],
+  sem_s4_d:['e.g., extreme distress over any shared resource, even with adult support','e.g., own set of resources, gradual turn-taking introduction, start with preferred items'],
+  sem_s5_d:['e.g., ignores or laughs at peers\' distress — no apparent empathy shown','e.g., emotion coaching, model empathy, social stories, SALT support'],
+  cog_p1_d:['e.g., refuses sand, water, paint, playdough — extreme distress at messy play','e.g., gradual desensitisation, dry sand alternatives, OT referral'],
+  cog_p2_d:['e.g., refuses outdoor area entirely, avoids all equipment, stays at door','e.g., gentle encouragement, favourite toy taken outside, adult stays close'],
+  cog_p3_d:['e.g., cannot do a 4-piece inset puzzle, throws pieces, gives up immediately','e.g., simpler shape sorters first, model together, break into small steps'],
+  cog_p4_d:['e.g., no imaginative play — does not feed a doll, drive a car or pretend','e.g., model play alongside, follow child\'s lead, SALT/autism assessment'],
+  cog_p5_d:['e.g., refuses all drawing, painting, colouring, craft — avoids mark-making entirely','e.g., finger paint, chunky tools, paint in sand, OT if needed'],
+  cog_p6_d:['e.g., refuses to join in songs, rhymes or music — distressed or completely disengaged','e.g., child\'s favourite sounds/songs, low-demand joining, instruments'],
+  cog_p7_d:['e.g., cannot sustain attention for a single page of a book','e.g., very short sessions, favourite characters, board books, parallel sharing'],
+  cog_p8_d:['e.g., plays only with one or two items repetitively, refuses all other resources','e.g., use preferred toys to expand play, autism assessment, play therapy consideration'],
+  cog_p9_d:['e.g., screen fixation has replaced all other activity, very difficult to divert','e.g., device limits, use screen interests to bridge to other activities'],
+  cog_p10_d:['e.g., cannot play alongside any peer, moves away immediately, no shared play','e.g., side-by-side play at distance, structured parallel play with adult'],
+  cog_l1_d:['e.g., needs significantly more repetition than peers — very slow to retain anything new','e.g., lots of repetition, sing to learn, multisensory input, small achievable steps'],
+  cog_l2_d:['e.g., cannot remember a familiar nursery rhyme after many repetitions','e.g., repetition with movement, visual prompt, Makaton signing alongside words'],
+  cog_l3_d:['e.g., gives up immediately on any task, cries and pushes away without attempting','e.g., co-solve together, start simpler, celebrate any attempt, tiny steps'],
+  cog_l4_d:['e.g., no coordination for physical learning, avoids all climbing and gross motor play','e.g., physio/OT referral, daily physical practice, adapted activities'],
+  cog_l5_d:['e.g., needs hand-over-hand each time, cannot copy any adult action or movement','e.g., model very slowly, hand-over-hand, imitation games, SALT support'],
+  cog_l6_d:['e.g., cannot access any group teaching — needs 1:1 for every instruction','e.g., 1:1 for all instructions, visual cue cards, small group work only'],
+  cog_i1_d:['e.g., fixates on one narrow interest only, distressed if diverted from it','e.g., use interest as bridge to learning, autism assessment, gradual expansion'],
+  cog_i2_d:['e.g., extreme distress if any routine varies — same order, same route, same cup','e.g., visual timetable, pre-warn changes, transition object, autism assessment'],
+  cog_i3_d:['e.g., can only access one specific area of the setting, refuses all others','e.g., gradual exposure, sensory adjustments, OT referral'],
+  cog_i4_d:['e.g., cannot sustain attention on any activity for more than 1-2 minutes','e.g., very short activities, high-interest materials, movement between tasks'],
+  cog_i5_d:['e.g., cannot sit for any group activity, leaves carpet immediately every time','e.g., individual learning, flexible seating, movement breaks, gradual group tolerance'],
+};
+
+const TDATA={
+  phy:[
+    {id:'hlth',t:'1. Health',ps:[
+      {id:'phys_h1',s:'No health difficulties affecting daily life or learning in setting',d:'Health difficulties that affect daily life or learning in setting'},
+      {id:'phys_h2',s:'Good vision — responds normally to visual stimuli and resources',d:'Possible vision difficulties — squints, avoids visual tasks in setting'},
+      {id:'phys_h3',s:'Good hearing — responds normally to sounds and adult voices',d:'Possible hearing difficulties — delayed/inconsistent response to sound'},
+      {id:'phys_h4',s:'No regular medication or medical procedures needed in setting',d:'Needs regular medication or medical procedures in setting'},
+    ],n:'n_phy_hlth'},
+    {id:'sens',t:'2. Sensory Processing',ps:[
+      {id:'phys_s1',s:'Comfortable with a range of everyday textures and touch in activities',d:'Distressed by certain textures or touch — unusual sensitivity in setting'},
+      {id:'phys_s2',s:'Comfortable with different light levels across the setting',d:'Difficulty with bright light or changes in lighting — distressed in certain rooms'},
+      {id:'phys_s3',s:'Comfortable with a range of everyday smells in setting (meals, art, cleaning)',d:'Distressed by certain smells — reacts unusually to everyday setting smells'},
+      {id:'phys_s4',s:'Comfortable with everyday noise levels (indoor play, group time, hall)',d:'Distressed or overwhelmed by sounds and noise levels in setting'},
+      {id:'phys_s5',s:'Engages with sensory experiences in a typical way for age',d:'Unusually seeks out or avoids sensory experiences compared to peers'},
+    ],n:'n_phy_sens'},
+    {id:'fine',t:'3. Fine Motor Skills',ps:[
+      {id:'phys_f1',s:'Developing age-appropriate fine motor skills (tools, puzzles, mark-making)',d:'Fine motor skills significantly behind age expectations in setting'},
+      {id:'phys_f2',s:'Starting to hold mark-making tools with emerging grip',d:'Refuses or cannot hold mark-making tools in any setting activity'},
+      {id:'phys_f3',s:'Making progress with dressing skills during PE/outdoor sessions',d:'No progress with dressing skills — needs full adult support every time'},
+      {id:'phys_f4',s:'Can manipulate age-appropriate small resources in setting activities',d:'Difficulty manipulating small resources — drops, avoids or pushes away'},
+    ],n:'n_phy_fine'},
+    {id:'grss',t:'4. Gross Motor Skills',ps:[
+      {id:'phys_g1',s:'Moves safely and confidently for their age (walking, running, stairs)',d:'Struggles with balance, coordination or body control compared to peers'},
+      {id:'phys_g2',s:'Explores outdoor physical play (climbing, sliding, bikes, scooters)',d:'Avoids or is unable to access physical outdoor play in setting'},
+      {id:'phys_g3',s:'Developing throwing, catching and kicking skills in PE/outdoor play',d:'Ball skills significantly behind age — avoids all ball play in setting'},
+      {id:'phys_g4',s:'Good body awareness — moves without bumping into things/people',d:'Poor body awareness — constant bumping, crashing or falling in setting'},
+    ],n:'n_phy_grss'},
+    {id:'dly',t:'5. Daily Routines & Self-Care in Setting',ps:[
+      {id:'phys_d1',s:'Developing age-appropriate self-care routines in setting',d:'Self-care skills significantly behind age expectations in setting'},
+      {id:'phys_d2',s:'Eats a reasonable variety of foods at lunchtime/snack time',d:'Very restricted diet — will only eat a very small number of foods in setting'},
+      {id:'phys_d3',s:'Appears rested and alert for learning — sleep broadly appropriate',d:'Appears exhausted in setting — sleep difficulties evident in presentation'},
+      {id:'phys_d4',s:'Toilet training is in progress or complete — managing in setting',d:'Toilet training not yet established — accidents regularly in setting'},
+      {id:'phys_d5',s:'Making progress with independent dressing in setting',d:'No dressing independence at all — full adult support required every time'},
+    ],n:'n_phy_dly'},
+    {id:'saf',t:'6. Staying Safe in Setting',ps:[
+      {id:'phys_safe1',s:'Responds to safety words like stop, wait, no in setting',d:'Does not respond to safety words — runs without awareness of danger'},
+      {id:'phys_safe2',s:'Broadly safe within the outdoor area with standard supervision',d:'Not safe outdoors — climbs dangerously, runs into hazards, needs 1:1'},
+      {id:'phys_safe3',s:'Can be safely managed on community/off-site visits with supervision',d:'Unsafe in community — bolts, wanders, no road awareness on visits'},
+      {id:'phys_safe4',s:'Beginning to understand stranger awareness with adult guidance',d:'No stranger awareness — approaches anyone, no concern about who they follow'},
+      {id:'phys_safe5',s:'Beginning to develop road awareness with adult guidance',d:'No road awareness — would run into roads without looking'},
+    ],n:'n_phy_saf'},
+  ],
+  com:[
+    {id:'spk',t:'1. Speaking & Expressive Communication',ps:[
+      {id:'comm_s1',s:'Uses words, phrases or sentences appropriate for age in setting',d:'Very limited verbal communication — significantly below age in setting'},
+      {id:'comm_s2',s:'Uses gesture, pointing or facial expression to communicate in setting',d:'Limited non-verbal communication — does not point, gesture or use expression'},
+      {id:'comm_s3',s:'Can communicate basic needs (hunger, pain, discomfort, help) in setting',d:'Cannot reliably communicate basic needs — needs are missed or guessed'},
+      {id:'comm_s4',s:'Vocabulary growing appropriately for age — understood by familiar staff',d:'Vocabulary very limited for age — fewer words than expected in setting'},
+      {id:'comm_s5',s:'Uses language for a range of purposes in setting (request, comment, question)',d:'Communication only functional — no spontaneous social use of language'},
+      {id:'comm_s6',s:'Engages in simple back-and-forth exchanges with familiar adults',d:'No back-and-forth exchange — monologue only or no initiation at all'},
+      {id:'comm_s7',s:'Shows joint attention — points to share interest, looks between adult and object',d:'Little or no joint attention — does not point to share or reference adults'},
+      {id:'comm_s8',s:'Speech sounds developing broadly as expected — intelligible to familiar staff',d:'Speech very difficult to understand in setting, even for familiar staff'},
+    ],n:'n_com_spk'},
+    {id:'lst',t:'2. Listening & Attention',ps:[
+      {id:'comm_l1',s:'Responds reliably when their name is called in setting',d:'Does not reliably respond when name is called by familiar adults'},
+      {id:'comm_l2',s:'Turns and shows awareness when spoken to by staff',d:'Does not turn or show awareness when spoken to in setting'},
+      {id:'comm_l3',s:'Follows simple instructions in setting (get your coat, sit down)',d:'Cannot follow simple one-step instructions in setting'},
+      {id:'comm_l4',s:'Follows two-part instructions in setting (get your coat and sit down)',d:'Cannot follow two-part instructions — one step only manageable'},
+      {id:'comm_l5',s:'Has developing vocabulary for objects, people and actions in setting',d:'Does not identify familiar objects, people or actions by name in setting'},
+      {id:'comm_l6',s:'Can sustain attention on a preferred activity for appropriate time',d:'Cannot sustain attention on any activity — flits constantly in setting'},
+    ],n:'n_com_lst'},
+    {id:'soc',t:'3. Social Communication & Interaction',ps:[
+      {id:'comm_p1',s:'Uses eye contact with familiar adults in setting',d:'Very limited or no eye contact, even with familiar staff in setting'},
+      {id:'comm_p2',s:'Shows interest in other children in setting — moves towards, watches, plays near',d:'No interest in other children in setting — avoids or becomes distressed'},
+      {id:'comm_p3',s:'Shares attention with an adult — looks between object and person',d:'No joint attention — does not share attention with adults in setting'},
+      {id:'comm_p4',s:'Responds to simple social games (peekaboo, clapping, turn-taking)',d:'Does not respond to simple social games or social interaction attempts'},
+    ],n:'n_com_soc'},
+  ],
+  sem:[
+    {id:'emo',t:'1. Emotional Development',ps:[
+      {id:'sem_e1',s:'Settles with comfort from a familiar and trusted adult in setting',d:'Cannot be settled by any familiar adult — extremely difficult to soothe'},
+      {id:'sem_e2',s:'Shows a range of emotions through expression and behaviour in setting',d:'Very limited emotional range in setting — appears flat or unexpressive'},
+      {id:'sem_e3',s:'Calms after being upset within an appropriate time in setting',d:'Takes very long to calm after upset — extreme and prolonged distress'},
+      {id:'sem_e4',s:'Responds to praise, reward and encouragement in setting',d:'Does not respond to praise, encouragement or any reward in setting'},
+      {id:'sem_e5',s:'Shows early warning signs of distress — staff can intervene proactively',d:'No apparent warning signs — escalates to crisis instantly in setting'},
+      {id:'sem_e6',s:'Has a key adult attachment in setting — seeks and accepts comfort',d:'No key attachment to any adult in setting — avoids or indiscriminate'},
+      {id:'sem_e7',s:'Can tolerate some timetable change with adult support in setting',d:'Cannot tolerate any change to routine — extreme distress even with warning'},
+      {id:'sem_e8',s:'Frustration is broadly manageable for age in setting',d:'Extreme frustration and tantrums significantly beyond age expectations'},
+    ],n:'n_sem_emo'},
+    {id:'soc2',t:'2. Social Development',ps:[
+      {id:'sem_s1',s:'Can be near other children without significant distress or aggression',d:'Cannot tolerate being near other children — aggressive, bites or extremely distressed'},
+      {id:'sem_s2',s:'Shows some interest in other children — watches, moves closer in setting',d:'No interest in peers in setting — avoids or indifferent to all other children'},
+      {id:'sem_s3',s:'Shows some awareness of others\' distress or emotions in setting',d:'No awareness of others\' feelings — does not respond when others are upset'},
+      {id:'sem_s4',s:'Can share resources with familiar adult support in setting',d:'Cannot share any resource in setting — extreme distress or aggression'},
+      {id:'sem_s5',s:'Shows early empathy — pats, offers comfort to distressed others',d:'No empathic response — appears unaware of others\' emotional states'},
+    ],n:'n_sem_soc'},
+  ],
+  cog:[
+    {id:'play',t:'1. Activities & Play — What the Child Engages With and Avoids in Setting',ps:[
+      {id:'cog_p1',s:'Engages with sensory play (water, sand, slime, playdough, messy play)',d:'Avoids sensory play in setting — distressed by textures or messy materials'},
+      {id:'cog_p2',s:'Engages with outdoor play (running, climbing, bikes, scooters)',d:'Avoids outdoor play — refuses equipment, prefers to stay inside'},
+      {id:'cog_p3',s:'Engages with construction and puzzle activities in setting',d:'Struggles with puzzles or building — gives up immediately or avoids'},
+      {id:'cog_p4',s:'Shows emerging imaginative or role play in setting',d:'No imaginative play in setting — does not pretend or understand role play'},
+      {id:'cog_p5',s:'Engages with creative activities (drawing, painting, craft) in setting',d:'Avoids drawing or mark-making entirely in setting'},
+      {id:'cog_p6',s:'Joins in with music, songs and rhymes in setting',d:'Struggles to join music or rhymes — disengaged or distressed in setting'},
+      {id:'cog_p7',s:'Shows interest in books and stories during group or individual time',d:'Cannot sustain attention for stories or books even briefly in setting'},
+      {id:'cog_p8',s:'Plays with a variety of toys and resources across the setting',d:'Plays only with a very narrow range of resources — repetitive and restricted'},
+      {id:'cog_p9',s:'Technology/tablet use is balanced with other play in setting',d:'Extreme fixation on screens in setting — very difficult to divert'},
+      {id:'cog_p10',s:'Can play alongside or with other children in setting',d:'Cannot play alongside other children — parallel play not established'},
+    ],n:'n_cog_play'},
+    {id:'lrn',t:'2. Early Learning — What the Child Learns Quickly and Finds Hard',ps:[
+      {id:'cog_l1',s:'Learns new routines and skills with appropriate repetition for age',d:'Needs significantly more repetition than peers — very slow to retain learning'},
+      {id:'cog_l2',s:'Can remember familiar songs, rhymes and setting sequences',d:'Cannot retain familiar songs or rhymes despite extensive repetition'},
+      {id:'cog_l3',s:'Shows some problem-solving — persists when something is difficult',d:'Gives up immediately — no problem-solving persistence in setting'},
+      {id:'cog_l4',s:'Physical skills (climbing, running, jumping) developing as expected for age',d:'Physical coordination significantly behind peers — avoids most activities'},
+      {id:'cog_l5',s:'Copies actions, movements and simple adult demonstrations',d:'Difficulty imitating actions or movements — does not copy adults or peers'},
+      {id:'cog_l6',s:'Can follow and learn in small group situations in setting',d:'Cannot access group learning at all — needs 1:1 for all instruction'},
+    ],n:'n_cog_lrn'},
+    {id:'int',t:'3. Interests, Flexibility & Learning Environment',ps:[
+      {id:'cog_i1',s:'Interests are broad — engages with a range of setting activities',d:'Very narrow or rigid interests — intense fixation on one topic or object'},
+      {id:'cog_i2',s:'Can tolerate changes to setting routine with adult support',d:'Routine rigidity — extreme distress at any change to familiar order'},
+      {id:'cog_i3',s:'Can learn in different areas of the setting (indoors, outdoors, hall)',d:'Will only engage in one specific area of setting — refuses all others'},
+      {id:'cog_i4',s:'Can sustain attention on an activity for an appropriate time for age',d:'Attention very short — cannot sustain focus even briefly on any task'},
+      {id:'cog_i5',s:'Can sit and participate in a short group activity (carpet, circle time)',d:'Cannot participate in any group activity — leaves or disrupts immediately'},
+    ],n:'n_cog_int'},
+  ],
+};
+
+const OUTS={
+  phy:[
+    {id:'o_phy_h',l:'Health outcome — After 12 months, the child will be able to better:',ph:'e.g., manage a care routine at nursery with reduced adult support'},
+    {id:'o_phy_s',l:'Sensory outcome — After 12 months, the child will be able to better:',ph:'e.g., tolerate being near sand and water play without extreme distress'},
+    {id:'o_phy_p',l:'Physical skills outcome — After 12 months, the child will be able to better:',ph:'e.g., hold a mark-making tool independently, climb safely in the outdoor area'},
+    {id:'o_phy_sf',l:'Safety outcome — After 12 months, the child will be able to better:',ph:'e.g., respond to stop reliably, remain within the outdoor area without running'},
+  ],
+  com:[
+    {id:'o_com_sp',l:'Speaking outcome — After 12 months, the child will be able to better:',ph:'e.g., use 50+ single words to communicate needs, begin combining two words'},
+    {id:'o_com_ls',l:'Listening outcome — After 12 months, the child will be able to better:',ph:'e.g., respond reliably when name is called, follow a one-step instruction'},
+    {id:'o_com_sc',l:'Social communication outcome — After 12 months, the child will be able to better:',ph:'e.g., make eye contact with a familiar adult, respond to a simple turn-taking game'},
+  ],
+  sem:[
+    {id:'o_sem_em',l:'Emotional development outcome — After 12 months, the child will be able to better:',ph:'e.g., settle with a familiar adult within 10 minutes of arrival'},
+    {id:'o_sem_sc',l:'Social development outcome — After 12 months, the child will be able to better:',ph:'e.g., play alongside one other child for 5 minutes without distress'},
+  ],
+  cog:[
+    {id:'o_cog_pl',l:'Play outcome — After 12 months, the child will be able to better:',ph:'e.g., engage in simple pretend play with an adult, play with a wider variety of resources'},
+    {id:'o_cog_lr',l:'Early learning outcome — After 12 months, the child will be able to better:',ph:'e.g., remember a familiar song or rhyme, complete a 5-piece puzzle independently'},
+    {id:'o_cog_in',l:'Attention/engagement outcome — After 12 months, the child will be able to better:',ph:'e.g., sustain attention on a preferred activity for 10 minutes, tolerate short carpet time'},
+  ],
+};
+
+let ST={phase:'intro',si:0,d:{}};
+
+function lST(){try{const s=localStorage.getItem(SK);if(s){const p=JSON.parse(s);ST.d=p.d||{};ST.si=p.si||0;return true;}}catch(e){}return false;}
+function sST(){try{localStorage.setItem(SK,JSON.stringify({d:ST.d,si:ST.si,sv:new Date().toISOString()}));}catch(e){}}
+function hSaved(){try{const s=JSON.parse(localStorage.getItem(SK));return s&&s.d&&Object.keys(s.d).length>0;}catch(e){return false;}}
+function sName(){try{const s=JSON.parse(localStorage.getItem(SK));return(s&&s.d&&s.d.child_forename)||'';}catch(e){return'';}}
+function sTime(){try{const s=JSON.parse(localStorage.getItem(SK));if(s&&s.sv)return new Date(s.sv).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});}catch(e){}return'';}
+
+let _st=null;
+function dbSave(){clearTimeout(_st);_st=setTimeout(()=>{sST();fSave();},700);}
+function fSave(){const b=document.getElementById('svb');if(!b)return;b.classList.remove('hidden');clearTimeout(b._t);b._t=setTimeout(()=>b.classList.add('hidden'),2000);}
+
+function sv(k,v){ST.d[k]=v;dbSave();}
+function gv(k,def=''){return ST.d[k]!==undefined?ST.d[k]:def;}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+function render(){
+  const a=document.getElementById('app');
+  if(ST.phase==='intro'){a.innerHTML=rIntro();bIntro();return;}
+  if(ST.phase==='done'){a.innerHTML=rDone();bDone();return;}
+  a.innerHTML=rForm();bForm();window.scrollTo(0,0);
+}
+
+function rIntro(){
+  const hs=hSaved(),nm=sName(),tm=sTime();
+  return`<div class="iw"><div class="ic">
+  <h2>EP Teacher Questionnaire</h2>
+  <div class="st">Early Years (EYFS) &amp; Early Developmental Needs &nbsp;|&nbsp; Teacher &amp; Key Worker Version &nbsp;|&nbsp; &copy; 2026 POPS</div>
+  <p style="font-size:14px;color:#4a5568;margin-bottom:4px">This questionnaire helps the Educational Psychologist gather information from the setting before an EP assessment. It is designed for children in <strong>Early Years settings</strong>, or children in KS1/KS2 who are <strong>functioning at an Early Years level</strong>. Please be as specific and evidence-based as possible.</p>
+  <div class="infobox"><strong>How to use this questionnaire</strong>
+  <p>Work through each section using the tabs along the top. Your answers are <strong>saved automatically on this device</strong> as you type — you do not need to finish in one sitting.</p>
+  <p>To return later, open <strong>this same page in the same browser on the same device</strong> and tap <strong>"Continue where I left off"</strong>.</p>
+  <p>When finished, tap <strong>"Finish — Send to EP"</strong> at the end. You will be able to copy the completed report and open a pre-filled email to send directly to the EP service.</p></div>
+  ${hs?`<div class="resbox"><strong>Saved progress found</strong><p>${nm?`Child: <strong>${nm}</strong><br>`:''}Last saved: ${tm}</p></div>
+  <button class="btn btp" id="br">Continue where I left off &rarr;</button>
+  <button class="btn bts" id="bn2">Start fresh (clears all saved answers)</button>`
+  :`<button class="btn btp" id="bs">Begin Questionnaire &rarr;</button>`}
+  </div></div>`;
+}
+function bIntro(){
+  const r=document.getElementById('br'),n=document.getElementById('bn2'),s=document.getElementById('bs');
+  if(r)r.onclick=()=>{lST();ST.phase='form';render();};
+  if(n)n.onclick=()=>{if(confirm('Erase all saved answers and start again?')){localStorage.removeItem(SK);ST={phase:'form',si:0,d:{}};render();}};
+  if(s)s.onclick=()=>{ST.phase='form';render();};
+}
+
+function rForm(){
+  const sec=SECS[ST.si];
+  const pct=Math.round(ST.si/(SECS.length-1)*100);
+  return`<header class="hdr">
+  <div><h1>EP Questionnaire — Teacher/Setting Version</h1><div class="sub">EYFS &amp; Early Needs &middot; &copy; 2026 POPS</div></div>
+  <span class="pct">${pct}%</span>
+  </header>
+  <div id="svb" class="svb hidden">&#10003; Progress saved automatically</div>
+  <nav class="snav">${SECS.map((s,i)=>`<button class="npill${i===ST.si?' act':i<ST.si?' vis':''}" data-i="${i}">${s.i} ${s.t}</button>`).join('')}</nav>
+  <div class="fw" id="fw">
+    ${rSec(sec)}
+    <div class="nbs">
+      ${ST.si>0?'<button class="btn bts" id="bb">&larr; Back</button>':''}
+      ${ST.si<SECS.length-1?'<button class="btn btp" id="bn">Save &amp; Continue &rarr;</button>':'<button class="btn btf" id="bf">Finish &mdash; Send to EP &#10003;</button>'}
+    </div>
+  </div>`;
+}
+
+function rSec(sec){
+  if(sec.id==='det')return rDet();
+  if(sec.id==='bg')return rBg();
+  if(sec.id==='att')return rAtt();
+  if(sec.id==='sup')return rSup();
+  if(sec.id==='pri')return rPri();
+  if(sec.id==='phy')return rTick('phy','A: Physical & Sensory','🏃','Tick all items that apply based on your observations in the setting. When you tick a <span style="color:var(--rose);font-weight:700">difficulty</span>, two boxes will appear asking about impact in setting and current strategies used.');
+  if(sec.id==='com')return rTick('com','B: Communication & Interaction','💬','Tick all that apply. This covers all forms of communication observed in the setting — verbal and non-verbal. When you tick a <span style="color:var(--rose);font-weight:700">difficulty</span>, two boxes will appear.');
+  if(sec.id==='sem')return rTick('sem','C: Emotional & Social Development','❤️','Tick all that apply based on observations in the setting. When you tick a <span style="color:var(--rose);font-weight:700">difficulty</span>, two boxes will appear.');
+  if(sec.id==='cog')return rTick('cog','D: Learning, Play & Early Development','🧩','Tick all that apply to what you observe in the setting. When you tick a <span style="color:var(--rose);font-weight:700">difficulty</span>, two boxes will appear.');
+  if(sec.id==='cv')return rCV();
+  if(sec.id==='tv')return rTV();
+  return'';
+}
+
+function rDet(){
+  return`<div class="sh"><span class="sbadge">1. Setting Details</span><h2>🏫 Child &amp; Setting Information</h2><p>Please complete the details below about the child and the setting.</p></div>
+  <div class="card"><div class="fr"><div><label>Child's Surname</label><input type="text" id="fi_child_surname" value="${esc(gv('child_surname'))}" placeholder="Surname"></div>
+  <div><label>Child's Forename(s)</label><input type="text" id="fi_child_forename" value="${esc(gv('child_forename'))}" placeholder="Forename"></div></div></div>
+  <div class="card"><div class="fr"><div><label>Date of Birth</label><input type="text" id="fi_dob" value="${esc(gv('dob'))}" placeholder="DD/MM/YYYY"></div>
+  <div><label>Current Age</label><input type="text" id="fi_age" value="${esc(gv('age'))}" placeholder="e.g. 3 years 8 months"></div></div></div>
+  <div class="card"><div class="fr"><div><label>Setting/School Name</label><input type="text" id="fi_school" value="${esc(gv('school'))}" placeholder="Nursery / school name"></div>
+  <div><label>Room/Class/Year Group</label><input type="text" id="fi_year_group" value="${esc(gv('year_group'))}" placeholder="e.g. Owls Room, Reception, Year 1"></div></div></div>
+  <div class="card"><div class="fr">
+  <div><label>Key Person / Class Teacher completing this</label><input type="text" id="fi_your_name" value="${esc(gv('your_name'))}" placeholder="Your full name"></div>
+  <div><label>Job Role</label><input type="text" id="fi_role" value="${esc(gv('role'))}" placeholder="e.g. Key Person, SENCO, Class Teacher"></div></div></div>
+  <div class="card"><div class="fr">
+  <div><label>SENCO Name</label><input type="text" id="fi_senco" value="${esc(gv('senco'))}" placeholder="SENCO full name"></div>
+  <div><label>Date form completed</label><input type="text" id="fi_form_date" value="${esc(gv('form_date'))}" placeholder="DD/MM/YYYY"></div></div></div>
+  <div class="card"><div class="fr">
+  <div><label>Setting Email Address</label><input type="email" id="fi_setting_email" value="${esc(gv('setting_email'))}" placeholder="setting@example.com"></div>
+  <div><label>Setting Phone Number</label><input type="tel" id="fi_setting_phone" value="${esc(gv('setting_phone'))}" placeholder="Phone number"></div></div></div>
+  <div class="card"><div class="fr">
+  <div><label>Gender</label><select id="fi_gender"><option value="">Select...</option>${['Boy','Girl','Non-binary','Prefer not to say','Other'].map(o=>`<option value="${o}"${gv('gender')===o?' selected':''}>${o}</option>`).join('')}</select></div>
+  <div><label>Home Language(s)</label><input type="text" id="fi_home_language" value="${esc(gv('home_language'))}" placeholder="e.g. English, Urdu"></div></div></div>
+  <div class="card"><label>How long has the child been in this setting?</label>
+  <input type="text" id="fi_time_in_setting" value="${esc(gv('time_in_setting'))}" placeholder="e.g. 6 months, since September 2023, 2 terms"></div>
+  <div class="card"><label>How many sessions/hours per week does the child attend?</label>
+  <input type="text" id="fi_sessions_pw" value="${esc(gv('sessions_pw'))}" placeholder="e.g. 5 mornings, 15 hours, full time"></div>`;
+}
+
+function rBg(){
+  const yno=['Yes','No','Not sure'];const yna=['Yes','No','Not applicable'];
+  return`<div class="sh"><span class="sbadge">2. Background &amp; Context</span><h2>📋 Background Information</h2><p>Please share what you know about the child's background and history. Include only information shared with the setting by parents or other professionals.</p></div>
+  <div class="card"><label>Confirmed or suspected diagnoses?</label><div class="hint">Tick all that apply. Add anything not listed.</div>
+  <div class="cg">${['Autism (ASD)','ADHD','Global developmental delay','Speech & Language disorder','Dyspraxia / DCD','Sensory processing disorder','Hearing impairment','Visual impairment','Cerebral palsy','Down\'s syndrome','Anxiety disorder','Other / under investigation'].map(o=>{const k='dx_'+o.replace(/\W/g,'_').toLowerCase().slice(0,20);return`<label class="co${gv(k)?' sel':''}"><input type="checkbox" id="c_${k}"${gv(k)?' checked':''}>${o}</label>`;}).join('')}</div>
+  <div style="margin-top:10px"><label style="font-size:13px;color:var(--mid)">Other / additional details:</label><input type="text" id="fi_dx_other" value="${esc(gv('dx_other'))}" placeholder="e.g., fragile X, selective mutism, type 1 diabetes"></div></div>
+  <div class="card"><label>Has the child received support from any health services?</label><div class="hint">Tick all that apply</div>
+  <div class="cg">${['Speech & Language Therapy (SALT)','Occupational Therapy (OT)','Physiotherapy','Paediatrician','CAMHS / Mental Health','Community Nursing','Portage / early intervention','Health Visitor','Audiology','Ophthalmology'].map(o=>{const k='hs_'+o.replace(/\W/g,'_').toLowerCase().slice(0,18);return`<label class="co${gv(k)?' sel':''}"><input type="checkbox" id="c_${k}"${gv(k)?' checked':''}>${o}</label>`;}).join('')}</div>
+  <div style="margin-top:10px"><label style="font-size:13px;color:var(--mid)">Other services:</label><input type="text" id="fi_hs_other" value="${esc(gv('hs_other'))}" placeholder="e.g., CDC, Makaton training, early help worker, private SALT"></div></div>
+  <div class="card"><label>Are any assessments, investigations or referrals currently ongoing?</label>
+  <div class="rg rg-inline">${yno.map(o=>`<label class="ro${gv('bg_ong')===o?' sel':''}" style="flex:0 0 auto;width:auto"><input type="radio" name="bg_ong" value="${o}"${gv('bg_ong')===o?' checked':''}>${o}</label>`).join('')}</div>
+  <div id="bg_ong_d" style="margin-top:10px;${gv('bg_ong')==='Yes'?'':'display:none'}"><textarea id="fi_bg_ong_detail" placeholder="Please describe what is currently ongoing...">${esc(gv('bg_ong_detail'))}</textarea></div></div>
+  <div class="card"><label>Are there any known concerns from pregnancy, birth or early development?</label>
+  <div class="hint">Only include information shared with the setting by parents or professionals</div>
+  <textarea id="fi_bg_birth" placeholder="e.g., parents reported premature birth at 32 weeks; or no concerns reported to setting...">${esc(gv('bg_birth'))}</textarea></div>
+  <div class="card"><label>Were developmental milestones noted as delayed?</label>
+  <div class="hint">Only what has been shared with the setting</div>
+  <textarea id="fi_bg_milestones" placeholder="e.g., parents report speech delayed — no first words until age 3; not yet toilet trained at age 4...">${esc(gv('bg_milestones'))}</textarea></div>
+  <div class="card"><label>Are you aware of any significant adverse early experiences or trauma?</label>
+  <div class="hint">Only include what has been formally shared. Note if information is limited.</div>
+  <div class="rg rg-inline">${yno.map(o=>`<label class="ro${gv('bg_adv')===o?' sel':''}" style="flex:0 0 auto;width:auto"><input type="radio" name="bg_adv" value="${o}"${gv('bg_adv')===o?' checked':''}>${o}</label>`).join('')}</div>
+  <div id="bg_adv_d" style="margin-top:10px;${gv('bg_adv')==='Yes'?'':'display:none'}">
+  <textarea id="fi_bg_adv_detail" placeholder="Please share only information that has been formally shared with the setting...">${esc(gv('bg_adv_detail'))}</textarea></div></div>
+  <div class="card"><label>Is the child or family currently involved with social care or Early Help?</label>
+  <div class="rg rg-inline">${yna.map(o=>`<label class="ro${gv('bg_sc')===o?' sel':''}" style="flex:0 0 auto;width:auto"><input type="radio" name="bg_sc" value="${o}"${gv('bg_sc')===o?' checked':''}>${o}</label>`).join('')}</div>
+  <div id="bg_sc_d" style="margin-top:10px;${gv('bg_sc')==='Yes'?'':'display:none'}"><input type="text" id="fi_bg_sc_detail" value="${esc(gv('bg_sc_detail'))}" placeholder="e.g., Child in Need plan, Early Help, Family Support worker"></div></div>
+  <div class="card"><label>Which settings has the child previously attended?</label>
+  <textarea id="fi_bg_schls" placeholder="e.g., childminder from 10 months, Little Stars Nursery 2022-2023, started here January 2024...">${esc(gv('bg_schls'))}</textarea></div>
+  <div class="card"><label>Are there any cultural, family or contextual factors the EP should be aware of?</label>
+  <textarea id="fi_bg_ctx" placeholder="e.g., English is a second language, recently moved from abroad, extended family caring role...">${esc(gv('bg_ctx'))}</textarea></div>`;
+}
+
+function rAtt(){
+  const pct=parseFloat(gv('att_pct'))||0;
+  let barClass='';
+  if(pct<90&&pct>0)barClass=' amber';
+  if(pct<80&&pct>0)barClass=' red';
+  const barW=Math.min(pct,100);
+  return`<div class="sh"><span class="sbadge">3. Attendance</span><h2>📅 Attendance Record</h2><p>Attendance patterns are important context for the EP. Please complete as accurately as possible based on your records.</p></div>
+  <div class="teach-note">📊 <strong>Why attendance matters:</strong> Persistent absence (below 90%) significantly affects learning and development. Patterns of absence (e.g., specific days, following weekends, illness-related) help the EP understand context and impact. Below 80% is classed as severe absence.</div>
+  <div class="card"><div class="fr3">
+  <div><label>Sessions/days possible this year</label><input type="number" id="fi_att_possible" value="${esc(gv('att_possible'))}" placeholder="e.g. 160" min="0"></div>
+  <div><label>Sessions/days attended this year</label><input type="number" id="fi_att_attended" value="${esc(gv('att_attended'))}" placeholder="e.g. 130" min="0"></div>
+  <div><label>Attendance % (this year)</label><input type="number" id="fi_att_pct" value="${esc(gv('att_pct'))}" placeholder="e.g. 81" min="0" max="100"></div></div>
+  <div class="attbar-bg"><div class="attbar${barClass}" style="width:${barW}%"></div></div>
+  <div class="attlabel">${pct>0?pct+'% attendance':''} ${pct>0&&pct<80?'&#9888;&#65039; Severely absent':pct>0&&pct<90?'&#9888;&#65039; Persistently absent':pct>=90?'&#10003; Broadly on track':''}</div>
+  </div>
+  <div class="card"><label>Authorised absences</label><div class="hint">Total number of sessions/days, and reason if known</div>
+  <textarea id="fi_att_auth" placeholder="e.g., 12 sessions — medical appointments, illness...">${esc(gv('att_auth'))}</textarea></div>
+  <div class="card"><label>Unauthorised absences</label><div class="hint">Total and any known reasons</div>
+  <textarea id="fi_att_unauth" placeholder="e.g., 18 sessions — no reason given, family holiday in term time...">${esc(gv('att_unauth'))}</textarea></div>
+  <div class="card"><label>Are there patterns to the absences?</label>
+  <div class="hint">e.g., specific days, after weekends, before/after holidays, linked to specific activities or events</div>
+  <textarea id="fi_att_pattern" placeholder="e.g., child is often absent on Mondays and Fridays; absences increase before transitions...">${esc(gv('att_pattern'))}</textarea></div>
+  <div class="card"><label>Has the child's attendance changed over time?</label>
+  <textarea id="fi_att_change" placeholder="e.g., attendance was 95% last year but has declined this year since the key person changed...">${esc(gv('att_change'))}</textarea></div>
+  <div class="card"><label>Is there any known reason for poor attendance?</label>
+  <textarea id="fi_att_reason" placeholder="e.g., recurrent ear infections, family circumstances, school refusal, anxiety about transitions...">${esc(gv('att_reason'))}</textarea></div>
+  <div class="card"><label>What is the impact of absences on the child's learning and relationships?</label>
+  <textarea id="fi_att_impact" placeholder="e.g., child loses all routines established and takes several days to settle on return; peer relationships are affected...">${esc(gv('att_impact'))}</textarea></div>`;
+}
+
+function rSup(){
+  return`<div class="sh"><span class="sbadge">4. Support in Place</span><h2>🤝 Current Support in Setting</h2><p>Please describe all support currently in place for this child. The EP needs to understand what has been tried and what impact it has had.</p></div>
+  <div class="teach-note">📋 <strong>Note:</strong> Be as specific as possible — describe the type, frequency and nature of support, not just whether it exists. Where possible, note what has worked and what has not.</div>
+  <div class="card"><label>Does the child have an Education, Health and Care Plan (EHCP)?</label>
+  <div class="rg rg-inline">${['Yes — current EHCP','Yes — pending/in process','No — but applied for','No'].map(o=>`<label class="ro${gv('ehcp')===o?' sel':''}" style="flex:0 0 auto;width:auto"><input type="radio" name="ehcp" value="${o}"${gv('ehcp')===o?' checked':''}>${o}</label>`).join('')}</div></div>
+  <div class="card"><label>Does the child have a SEND Support Plan / Individual Plan?</label>
+  <div class="rg rg-inline">${['Yes','No','In development'].map(o=>`<label class="ro${gv('iep')===o?' sel':''}" style="flex:0 0 auto;width:auto"><input type="radio" name="iep" value="${o}"${gv('iep')===o?' checked':''}>${o}</label>`).join('')}</div>
+  <div id="iep_d" style="margin-top:10px;${gv('iep')==='Yes'?'':'display:none'}">
+  <textarea id="fi_iep_detail" placeholder="Briefly describe current targets and review date...">${esc(gv('iep_detail'))}</textarea></div></div>
+  <div class="card"><label>1:1 or small group adult support</label><div class="hint">Describe who provides it, for how many hours/sessions per week, and in what context</div>
+  <textarea id="fi_sup_1to1" placeholder="e.g., key person provides 1:1 support for 30 minutes each morning for communication activities; TA supports during carpet time...">${esc(gv('sup_1to1'))}</textarea></div>
+  <div class="card"><label>Specialist advisory teacher input</label>
+  <textarea id="fi_sup_sat" placeholder="e.g., SEND advisory teacher visited twice this term, recommended visual schedule and Makaton signing...">${esc(gv('sup_sat'))}</textarea></div>
+  <div class="card"><label>Speech &amp; Language Therapy (SALT) support</label>
+  <textarea id="fi_sup_salt" placeholder="e.g., SALT visits fortnightly, programme of Makaton signs being implemented across setting; PECS Phase 1 in use...">${esc(gv('sup_salt'))}</textarea></div>
+  <div class="card"><label>Occupational Therapy (OT) support</label>
+  <textarea id="fi_sup_ot" placeholder="e.g., OT provided sensory diet — scheduled movement breaks three times daily; fidget tools available...">${esc(gv('sup_ot'))}</textarea></div>
+  <div class="card"><label>Portage or Early Intervention support</label>
+  <textarea id="fi_sup_portage" placeholder="e.g., Portage worker visits weekly, targets focused on functional communication and turn-taking in play...">${esc(gv('sup_portage'))}</textarea></div>
+  <div class="card"><label>Any other external professional involvement</label>
+  <textarea id="fi_sup_ext" placeholder="e.g., community paediatrician, CAMHS, autism advisory service, specialist teacher for hearing impairment...">${esc(gv('sup_ext'))}</textarea></div>
+  <div class="card"><label>Environmental adaptations made in the setting</label>
+  <textarea id="fi_sup_env" placeholder="e.g., visual timetable in place, ear defenders available, low-stimulus corner with bean bag, own peg and tray clearly labelled...">${esc(gv('sup_env'))}</textarea></div>
+  <div class="card"><label>Communication strategies and AAC in use</label>
+  <textarea id="fi_sup_aac" placeholder="e.g., Makaton signs used by all staff, PECS communication book, picture exchange for snack and toilet requests, core vocabulary board...">${esc(gv('sup_aac'))}</textarea></div>
+  <div class="card"><label>Behaviour and emotional regulation strategies in use</label>
+  <textarea id="fi_sup_beh" placeholder="e.g., Zones of Regulation visuals, consistent co-regulation approach, safe quiet space in book corner, predictable routine...">${esc(gv('sup_beh'))}</textarea></div>
+  <div class="card"><label>What has worked well? What has had the most positive impact?</label>
+  <textarea id="fi_sup_worked" placeholder="e.g., visual timetable has significantly reduced transition distress; PECS has enabled the child to request snacks independently...">${esc(gv('sup_worked'))}</textarea></div>
+  <div class="card"><label>What has not worked or had limited impact?</label>
+  <textarea id="fi_sup_notworked" placeholder="e.g., reward charts have no impact; social stories tried but child does not engage; group activities remain inaccessible...">${esc(gv('sup_notworked'))}</textarea></div>
+  <div class="card"><label>What do you feel the child needs next that is beyond what the setting can provide?</label>
+  <textarea id="fi_sup_gaps" placeholder="e.g., intensive 1:1 specialist SALT support beyond what is currently funded; specialist nursery placement; OT sensory assessment...">${esc(gv('sup_gaps'))}</textarea></div>`;
+}
+
+function rPri(){
+  const areas=[
+    {id:'pr_com',l:'Communication & Interaction — e.g., speech, language, understanding, social communication'},
+    {id:'pr_sem',l:'Social, Emotional & Mental Health — e.g., regulation, attachment, behaviour, anxiety'},
+    {id:'pr_phy',l:'Physical & Sensory — e.g., motor skills, sensory processing, self-care'},
+    {id:'pr_cog',l:'Cognition & Early Learning — e.g., play skills, learning, attention, memory'},
+    {id:'pr_hlt',l:'Health — e.g., medical conditions, feeding, sleep, toileting'},
+  ];
+  return`<div class="sh"><span class="sbadge">5. Main Concerns</span><h2>⭐ What are your main concerns for this child?</h2>
+  <p>Tick all areas of concern and number them in priority order (1 = most significant concern in your professional view). This helps the EP focus on the areas of greatest need.</p></div>
+  <div class="prt">${areas.map(a=>`<div class="prr">
+  <input type="checkbox" id="c_${a.id}"${gv(a.id)?' checked':''}>
+  <label class="prrl" for="c_${a.id}">${a.l}</label>
+  <div class="prrs">Priority: <select id="s_${a.id}"><option value="">—</option>${[1,2,3,4,5].map(n=>`<option value="${n}"${gv(a.id+'_p')==n?' selected':''}>${n}</option>`).join('')}</select></div>
+  </div>`).join('')}</div>
+  ${qb('pr_other','Any other concern not listed above?','e.g., extreme school refusal, self-injurious behaviour, very restricted eating impacting the setting')}`;
+}
+
+function rTick(sec,title,icon,desc){
+  const subs=TDATA[sec];
+  const sl=title.split(':')[0];
+  let html=`<div class="sh"><span class="sbadge">Section ${sl}</span><h2>${icon} ${title.split(': ')[1]||title}</h2><p>${desc}</p></div>
+  <div class="sinote">&#10003; <strong>Left side (teal)</strong> = things the child does or is beginning to do in your setting &nbsp;|&nbsp; &#9888; <strong>Right side (red)</strong> = things the child finds difficult or cannot yet do in your setting. Base your answers on what you directly observe.</div>`;
+  subs.forEach(sub=>{
+    html+=`<div class="tsec">
+    <div class="tttl">${sub.t}</div>
+    <div class="tchdr"><span class="shdr">&#10003; Strengths — Doing Well in Setting</span><span class="dhdr">&#9888; Difficulties — Not Yet / Struggling in Setting</span></div>
+    <div class="tbody">
+      <div class="tcol sc">${sub.ps.map(p=>`<label class="ti"><input type="checkbox" id="c_${p.id}_s"${gv(p.id+'_s')?' checked':''}><span>${p.s}</span></label>`).join('')}</div>
+      <div class="tcol dc">${sub.ps.map(p=>`<div>
+        <label class="ti"><input type="checkbox" id="c_${p.id}_d"${gv(p.id+'_d')?' checked':''}><span>${p.d}</span></label>
+        ${rDex(p.id)}
+      </div>`).join('')}</div>
+    </div>
+    <div class="tnotes"><label>Additional notes for this section (optional):</label>
+    <textarea id="fi_${sub.n}" placeholder="Anything else to add about this area — include specific examples where possible...">${esc(gv(sub.n))}</textarea></div>
+    </div>`;
+  });
+  html+=rOuts(sec);
+  return html;
+}
+
+function rDex(pid){
+  const hkey=pid+'_d';
+  const hints=DH[hkey]||['e.g., describe specifically how this difficulty presents in your setting day-to-day','e.g., describe strategies currently in place and their impact'];
+  const open=gv(pid+'_d');
+  return`<div class="dex${open?' open':''}" id="dx_${pid}">
+  <div class="egrid">
+    <div><span class="dlbl">How does this present in your setting?</span>
+    <textarea id="fi_${pid}_imp" placeholder="${hints[0]}">${esc(gv(pid+'_imp'))}</textarea></div>
+    <div><span class="dlbl">What strategies/support are currently in place?</span>
+    <textarea id="fi_${pid}_sup" placeholder="${hints[1]}">${esc(gv(pid+'_sup'))}</textarea></div>
+  </div></div>`;
+}
+
+function rOuts(sec){
+  const outs=OUTS[sec];if(!outs)return'';
+  return`<div class="obox"><h3>&#127919; Desired Outcomes (Setting View)</h3>
+  <p>After 12 months of support, what would you like this child to be able to do in the setting? These help the EP set goals in their report. Complete the most relevant ones.</p>
+  ${outs.map(o=>`<div class="oi"><label>${o.l}</label><textarea id="fi_${o.id}" placeholder="${o.ph}">${esc(gv(o.id))}</textarea></div>`).join('')}
+  </div>`;
+}
+
+function rCV(){
+  return`<div class="sh"><span class="sbadge">6. Child's Voice</span><h2>🗣️ The Child's Experience — As Observed in Setting</h2>
+  <p>For children who cannot verbally communicate their views, this section should be based on careful observation of the child's behaviour, preferences and responses in your setting. Your observations are the child's voice.</p></div>
+  <div class="teach-note">💡 <strong>For non-verbal or minimally verbal children:</strong> Think about what the child <em>shows you</em> — where they go when they enter the room, what they reach for, what makes them engage or disengage, what consistently produces a positive response, and what triggers distress. All of this is their voice.</div>
+  ${qb('cv_likes','What does the child seem to most enjoy or seek out in the setting?','e.g., always goes to the water tray first, seeks out spinning toys, engages most with music activities')}
+  ${qb('cv_dislikes','What does the child seem to dislike or avoid in the setting?','e.g., refuses outdoor PE, distressed by the dinner hall, leaves carpet immediately, avoids all messy play')}
+  ${qb('cv_people','Which staff or peers does the child seem most comfortable with or drawn to?','e.g., seeks out key person consistently, responds well to calm adult voice, ignores all peers')}
+  ${qb('cv_calm','What helps the child feel calm, settled and ready to engage in the setting?','e.g., a specific toy at arrival, a particular routine, being near a window, movement before carpet time')}
+  ${qb('cv_setting_feel','How does the child appear to feel about coming into the setting?','e.g., arrives distressed every session, settles within 10 minutes, appears indifferent to transitions')}
+  ${qb('cv_motivated','What motivates the child — what will they work for or seek out in learning?','e.g., bubbles, specific books, iPad, physical activity, praise from key person, certain songs')}
+  ${qb('cv_proud','What can the child do that they appear proud of or that you have noted as a strength?','e.g., exceptional memory for vehicle names, can operate the tablet independently, very nurturing with animals')}
+  ${qb('cv_future','As a professional, what do you hope this child will experience and achieve?','e.g., to make a connection with one peer, to communicate a basic need independently, to access learning with less distress')}`;
+}
+
+function rTV(){
+  return`<div class="sh"><span class="sbadge">7. Teacher/Setting Views</span><h2>👩‍🏫 Your Professional Views &amp; Observations</h2>
+  <p>This section is your professional contribution to the EP assessment. Please be as specific, evidence-based and honest as possible. The EP relies on your knowledge of this child in the setting.</p></div>
+  ${qb('tv_str','What do you see as this child\'s greatest strengths and areas of progress?','e.g., has begun to make eye contact with key person, shows genuine enjoyment of music, is beginning to request using PECS')}
+  ${qb('tv_con','What are your biggest professional concerns about this child right now?','e.g., has not spoken a single word in the setting despite 6 months; self-harms when distressed; no functional communication at age 4')}
+  ${qb('tv_compare','How does this child\'s development compare to others of the same age in your setting?','e.g., working approximately 18 months behind peers across all areas; communication is at 12-month level; play is largely solitary')}
+  ${qb('tv_progress','What progress has the child made since joining the setting?','e.g., has gone from arriving in distress daily to settling within 5 minutes; can now make one-word requests using PECS; recognises key person')}
+  ${qb('tv_typical','How does the child\'s presentation vary across the day/week/term?','e.g., better in the mornings, worse after weekends; more dysregulated at start of term; responds better 1:1 than in groups')}
+  ${qb('tv_home','How does the child\'s behaviour/presentation in the setting compare to what parents report at home?','e.g., parents report child speaks in full sentences at home but is completely non-verbal in setting; parents say no behaviour issues at home')}
+  ${qb('tv_triggers','What typically triggers distress, dysregulation or challenging behaviour in setting?','e.g., transition between activities, unexpected noise, another child taking their toy, change to usual routine')}
+  ${qb('tv_strategies','What does the child respond well to in terms of strategies and approaches?','e.g., advance warnings, visual supports, 1:1 adult, familiar routine, sensory regulation before learning activities')}
+  ${qb('tv_concerns_send','In your professional view, what areas of SEND does this child have, and how significant are these?','e.g., in my professional view this child has significant communication and language needs alongside sensory processing differences that require specialist assessment')}
+  ${qb('tv_next','What do you believe this child needs next that the setting cannot currently provide without additional funding or specialist support?','e.g., intensive specialist SALT input, a reduced-ratio environment, specialist nursery placement, OT sensory assessment and programme')}
+  ${qb('tv_ehcp','Why does this child need an EHCP (if applicable), and what would it enable?','e.g., the child requires significantly more than the setting can fund from its notional SEND budget; an EHCP would enable 1:1 specialist support throughout the day')}
+  ${qb('tv_ep','Is there anything else you want the Educational Psychologist to know before the assessment?','e.g., the child presents very differently on a good day vs a bad day — please do not base conclusions on a single observation; previous SALT assessment was inconclusive')}
+  ${qb('tv_collab','How would you like to work with the EP and other professionals going forward?','e.g., we would welcome joint observation, regular feedback, a post-assessment meeting with parents, and clear recommendations we can implement in setting')}`;
+}
+
+function qb(id,q,hint){
+  return`<div class="qb"><div class="q">${q}</div>${hint?`<div class="qh">${hint}</div>`:''}<textarea id="fi_${id}" placeholder="Type your answer here...">${esc(gv(id))}</textarea></div>`;
+}
+
+function rDone(){
+  const epEmail=gv('ep_email','');
+  return`<div class="dw"><div class="dc">
+  <div style="font-size:52px;margin-bottom:14px">✅</div>
+  <h2>Questionnaire complete — thank you!</h2>
+  <p>Enter the EP's email address below, then choose to copy the report or open a pre-filled email directly.</p>
+  <div class="email-input">
+    <input type="email" id="ep_email_input" value="${esc(epEmail)}" placeholder="EP email address (e.g., ep@localauthority.gov.uk)">
+  </div>
+  <button class="btn bte" id="bmail">📧 Open Pre-filled Email to EP</button>
+  <button class="btn btp" id="bcp">📋 Copy Report to Clipboard</button>
+  <button class="btn bts" id="bbk">← Go Back and Edit</button>
+  <div class="rpre" id="rp"></div>
+  <p style="font-size:12px;color:var(--mid);margin-top:10px">Your answers remain saved on this device. You can return and send again at any time.</p>
+  </div></div>`;
+}
+
+function bDone(){
+  const rep=bRep();
+  const rp=document.getElementById('rp');
+  if(rp)rp.textContent=rep;
+  document.getElementById('ep_email_input').addEventListener('input',function(){sv('ep_email',this.value);});
+  document.getElementById('bmail').onclick=()=>{
+    const btnEl=document.getElementById('bmail');
+    const email=document.getElementById('ep_email_input').value||'';
+    const child=(gv('child_forename')+' '+(gv('child_surname')||'')).trim();
+    const subject=encodeURIComponent('EP Teacher Questionnaire (EYFS) — '+child);
+    navigator.clipboard.writeText(rep).then(()=>{
+      const link=document.createElement('a');
+      link.href='mailto:'+encodeURIComponent(email)+'?subject='+subject;
+      link.click();
+      btnEl.textContent='Report copied — paste into the email body (Ctrl+V / Cmd+V)';
+      btnEl.style.background='#27734a';
+      setTimeout(()=>{btnEl.textContent='📧 Open Pre-filled Email to EP';btnEl.style.background='';},6000);
+    }).catch(()=>{
+      const link=document.createElement('a');
+      link.href='mailto:'+encodeURIComponent(email)+'?subject='+subject;
+      link.click();
+      alert('Your email has opened. Please use the Copy Report button below and paste the report into the email body.');
+    });
+  };
+  document.getElementById('bcp').onclick=()=>{
+    navigator.clipboard.writeText(rep).then(()=>{
+      document.getElementById('bcp').textContent='Copied!';
+      setTimeout(()=>{document.getElementById('bcp').textContent='📋 Copy Report to Clipboard';},3000);
+    }).catch(()=>{if(rp){const r=document.createRange();r.selectNode(rp);window.getSelection().removeAllRanges();window.getSelection().addRange(r);}alert('Long-press on the text above and choose Copy.');});
+  };
+  document.getElementById('bbk').onclick=()=>{ST.phase='form';ST.si=SECS.length-1;render();};
+}
+
+function bRep(){
+  const d=ST.d;
+  const g=k=>d[k]||'Not provided';
+  const today=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  let r=`EP ASSESSMENT QUESTIONNAIRE — EARLY YEARS (EYFS) & EARLY DEVELOPMENTAL NEEDS
+TEACHER / SETTING CONTRIBUTION
+Date completed: ${g('form_date')||today}
+© 2026 POPS
+
+══════════════════════════════════════
+SETTING & CHILD DETAILS
+══════════════════════════════════════
+Child's Name: ${g('child_forename')} ${g('child_surname')}
+Date of Birth: ${g('dob')}  |  Current Age: ${g('age')}
+Setting/School: ${g('school')}  |  Room/Class: ${g('year_group')}
+Gender: ${g('gender')}  |  Home Language(s): ${g('home_language')}
+Time in setting: ${g('time_in_setting')}  |  Sessions per week: ${g('sessions_pw')}
+Completed by: ${g('your_name')} (${g('role')})
+SENCO: ${g('senco')}
+Setting Email: ${g('setting_email')}  |  Setting Phone: ${g('setting_phone')}
+
+══════════════════════════════════════
+BACKGROUND & CONTEXT
+══════════════════════════════════════
+Diagnoses/conditions: ${['Autism (ASD)','ADHD','Global developmental delay','Speech & Language disorder','Dyspraxia / DCD','Sensory processing disorder','Hearing impairment','Visual impairment','Cerebral palsy','Down\'s syndrome','Anxiety disorder','Other / under investigation'].filter(o=>d['dx_'+o.replace(/\W/g,'_').toLowerCase().slice(0,20)]).join(', ')||'None indicated'}${d.dx_other?' + '+d.dx_other:''}
+Health services received: ${['Speech & Language Therapy (SALT)','Occupational Therapy (OT)','Physiotherapy','Paediatrician','CAMHS / Mental Health','Community Nursing','Portage / early intervention','Health Visitor','Audiology','Ophthalmology'].filter(o=>d['hs_'+o.replace(/\W/g,'_').toLowerCase().slice(0,18)]).join(', ')||'None indicated'}${d.hs_other?' + '+d.hs_other:''}
+Ongoing investigations: ${g('bg_ong')}${d.bg_ong_detail?' — '+d.bg_ong_detail:''}
+Birth/early development: ${g('bg_birth')}
+Developmental milestones: ${g('bg_milestones')}
+Adverse early experiences: ${g('bg_adv')}${d.bg_adv_detail?' — '+d.bg_adv_detail:''}
+Social care involvement: ${g('bg_sc')}${d.bg_sc_detail?' — '+d.bg_sc_detail:''}
+Previous settings: ${g('bg_schls')}
+Cultural/family context: ${g('bg_ctx')}
+
+══════════════════════════════════════
+ATTENDANCE
+══════════════════════════════════════
+Sessions possible (this year): ${g('att_possible')}
+Sessions attended (this year): ${g('att_attended')}
+Attendance %: ${g('att_pct')}%
+Authorised absences: ${g('att_auth')}
+Unauthorised absences: ${g('att_unauth')}
+Patterns of absence: ${g('att_pattern')}
+Change over time: ${g('att_change')}
+Known reasons for absence: ${g('att_reason')}
+Impact of absences: ${g('att_impact')}
+
+══════════════════════════════════════
+SUPPORT CURRENTLY IN PLACE
+══════════════════════════════════════
+EHCP status: ${g('ehcp')}
+SEND Support Plan: ${g('iep')}${d.iep_detail?' — '+d.iep_detail:''}
+1:1 / small group adult support: ${g('sup_1to1')}
+Specialist advisory teacher: ${g('sup_sat')}
+SALT support: ${g('sup_salt')}
+OT support: ${g('sup_ot')}
+Portage/early intervention: ${g('sup_portage')}
+Other professional involvement: ${g('sup_ext')}
+Environmental adaptations: ${g('sup_env')}
+Communication/AAC strategies: ${g('sup_aac')}
+Behaviour/regulation strategies: ${g('sup_beh')}
+What has worked well: ${g('sup_worked')}
+What has not worked: ${g('sup_notworked')}
+What the child needs beyond current provision: ${g('sup_gaps')}
+
+══════════════════════════════════════
+MAIN CONCERNS (PRIORITY ORDER)
+══════════════════════════════════════
+`;
+  [{id:'pr_com',l:'Communication & Interaction'},{id:'pr_sem',l:'Social, Emotional & Mental Health'},{id:'pr_phy',l:'Physical & Sensory'},{id:'pr_cog',l:'Cognition & Early Learning'},{id:'pr_hlt',l:'Health'}]
+    .forEach(a=>{if(d[a.id])r+=`[✓] ${a.l}${d[a.id+'_p']?' — Priority: '+d[a.id+'_p']:''}\n`;});
+  if(d.pr_other)r+=`Other: ${d.pr_other}\n`;
+
+  function addSec(title,subs){
+    r+=`\n══════════════════════════════════════\n${title}\n══════════════════════════════════════\n`;
+    subs.forEach(sub=>{
+      let strengths=[],difficulties=[];
+      sub.ps.forEach(p=>{
+        if(d[p.id+'_s'])strengths.push(`  • ${p.s}`);
+        if(d[p.id+'_d']){
+          let dl=`  • ${p.d}`;
+          if(d[p.id+'_imp'])dl+=`\n      Presentation in setting: ${d[p.id+'_imp']}`;
+          if(d[p.id+'_sup'])dl+=`\n      Strategies/support in place: ${d[p.id+'_sup']}`;
+          difficulties.push(dl);
+        }
+      });
+      if(strengths.length>0||difficulties.length>0||d[sub.n]){
+        r+=`\n${sub.t}\n${'─'.repeat(sub.t.length)}\n`;
+        if(strengths.length>0){r+=`STRENGTHS\n${strengths.join('\n')}\n`;}
+        if(difficulties.length>0){r+=`\nDIFFICULTIES\n${difficulties.join('\n')}\n`;}
+        if(d[sub.n])r+=`\nAdditional notes: ${d[sub.n]}\n`;
+      }
+    });
+  }
+
+  addSec('A. PHYSICAL & SENSORY',TDATA.phy);
+  r+='\nDesired Outcomes — Physical & Sensory:\n';
+  OUTS.phy.forEach(o=>{if(d[o.id])r+=`  ${o.l.split('—')[0].trim()}: ${d[o.id]}\n`;});
+
+  addSec('B. COMMUNICATION & INTERACTION',TDATA.com);
+  r+='\nDesired Outcomes — Communication:\n';
+  OUTS.com.forEach(o=>{if(d[o.id])r+=`  ${o.l.split('—')[0].trim()}: ${d[o.id]}\n`;});
+
+  addSec('C. SOCIAL, EMOTIONAL & DEVELOPMENTAL',TDATA.sem);
+  r+='\nDesired Outcomes — Emotional & Social:\n';
+  OUTS.sem.forEach(o=>{if(d[o.id])r+=`  ${o.l.split('—')[0].trim()}: ${d[o.id]}\n`;});
+
+  addSec('D. LEARNING, PLAY & EARLY DEVELOPMENT',TDATA.cog);
+  r+='\nDesired Outcomes — Learning & Play:\n';
+  OUTS.cog.forEach(o=>{if(d[o.id])r+=`  ${o.l.split('—')[0].trim()}: ${d[o.id]}\n`;});
+
+  r+=`\n══════════════════════════════════════\nCHILD'S VOICE (STAFF-OBSERVED)\n══════════════════════════════════════\n`;
+  [['cv_likes','Enjoys / responds positively to in setting'],['cv_dislikes','Dislikes / avoids in setting'],['cv_people','Most comfortable with in setting'],['cv_calm','What helps child feel calm/settled in setting'],['cv_setting_feel','How child appears to feel about the setting'],['cv_motivated','Motivated by in setting'],['cv_proud','Noted strengths / observed pride'],['cv_future','Professional hopes for child']].forEach(([k,l])=>{if(d[k])r+=`${l}: ${d[k]}\n`;});
+
+  r+=`\n══════════════════════════════════════\nTEACHER / SETTING PROFESSIONAL VIEWS\n══════════════════════════════════════\n`;
+  [['tv_str','Child\'s strengths and progress in setting'],['tv_con','Main professional concerns'],['tv_compare','Comparison to age-expected development'],['tv_progress','Progress since joining setting'],['tv_typical','Variation in presentation'],['tv_home','Setting vs home presentation'],['tv_triggers','Triggers for distress/dysregulation'],['tv_strategies','What child responds well to'],['tv_concerns_send','Professional view of SEND areas'],['tv_next','What child needs beyond current provision'],['tv_ehcp','Rationale for EHCP (if applicable)'],['tv_ep','Important for EP to know before assessment'],['tv_collab','How to work with EP going forward']].forEach(([k,l])=>{if(d[k])r+=`${l}: ${d[k]}\n`;});
+
+  return r;
+}
+
+function bForm(){
+  document.querySelectorAll('.npill').forEach(p=>p.addEventListener('click',()=>{cAll();ST.si=parseInt(p.dataset.i);render();}));
+  const bb=document.getElementById('bb'),bn=document.getElementById('bn'),bf=document.getElementById('bf');
+  if(bb)bb.onclick=()=>{cAll();ST.si--;render();};
+  if(bn)bn.onclick=()=>{cAll();ST.si++;render();};
+  if(bf)bf.onclick=()=>{cAll();ST.phase='done';render();};
+
+  document.querySelectorAll('input[type=checkbox]').forEach(cb=>{
+    cb.addEventListener('change',()=>{
+      if(cb.id.startsWith('c_')&&cb.id.endsWith('_d')){
+        const base=cb.id.slice(2,-2);
+        const ex=document.getElementById('dx_'+base);
+        if(ex)ex.classList.toggle('open',cb.checked);
+      }
+      const co=cb.closest('.co');if(co)co.classList.toggle('sel',cb.checked);
+      cAll();
+    });
+  });
+
+  document.querySelectorAll('input[type=radio]').forEach(r=>{
+    r.addEventListener('change',()=>{
+      document.querySelectorAll(`input[name="${r.name}"]`).forEach(x=>{const p=x.closest('.ro');if(p)p.classList.toggle('sel',x.checked);});
+      if(r.name==='bg_ong'){const w=document.getElementById('bg_ong_d');if(w)w.style.display=r.value==='Yes'?'':'none';}
+      if(r.name==='bg_sc'){const w=document.getElementById('bg_sc_d');if(w)w.style.display=r.value==='Yes'?'':'none';}
+      if(r.name==='bg_adv'){const w=document.getElementById('bg_adv_d');if(w)w.style.display=r.value==='Yes'?'':'none';}
+      if(r.name==='iep'){const w=document.getElementById('iep_d');if(w)w.style.display=r.value==='Yes'?'':'none';}
+      cAll();
+    });
+  });
+
+  document.querySelectorAll('input[type=number]').forEach(el=>{
+    el.addEventListener('input',()=>{
+      if(el.id==='fi_att_pct'||el.id==='fi_att_possible'||el.id==='fi_att_attended'){
+        cAll();
+        const pos=parseFloat(document.getElementById('fi_att_possible')?.value)||0;
+        const att=parseFloat(document.getElementById('fi_att_attended')?.value)||0;
+        if(pos>0&&att>0&&el.id!=='fi_att_pct'){
+          const pct=Math.round(att/pos*100);
+          const pctInput=document.getElementById('fi_att_pct');
+          if(pctInput){pctInput.value=pct;sv('att_pct',pct);}
+        }
+      }
+    });
+  });
+
+  document.querySelectorAll('input,textarea,select').forEach(el=>{el.addEventListener('input',cAll);el.addEventListener('change',cAll);});
+}
+
+function cAll(){
+  document.querySelectorAll('[id^="fi_"]').forEach(el=>{sv(el.id.slice(3),el.value);});
+  document.querySelectorAll('input[type=checkbox]').forEach(cb=>{if(cb.id)sv(cb.id.startsWith('c_')?cb.id.slice(2):cb.id,cb.checked);});
+  document.querySelectorAll('input[type=radio]:checked').forEach(r=>{if(r.name)sv(r.name,r.value);});
+  document.querySelectorAll('select').forEach(s=>{if(s.id){const k=s.id.startsWith('fi_')?s.id.slice(3):s.id.startsWith('s_')?s.id.slice(2):s.id;sv(k,s.value);}});
+  sST();
+}
+
+lST();render();
+</script>
+</body>
+</html>
